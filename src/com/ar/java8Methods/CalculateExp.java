@@ -5,7 +5,7 @@ import java.time.Period;
 
 public class CalculateExp {
     public static void main(String[] args) {
-        LocalDate startingDate =  LocalDate.of(2021,01,13);
+        LocalDate startingDate =  LocalDate.of(1995,8,20);
         LocalDate stillDate = LocalDate.now();
 
         Period experience = Period.between(startingDate, stillDate);

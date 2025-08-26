@@ -5,12 +5,31 @@ import java.util.Arrays;
 public class longestCommonPrefix {
     public static void main(String[] args) {
         longestCommonPrefix solution = new longestCommonPrefix();
+        //String[] input = {"geeksforgeeks", "geeks", "geek", "geeker", "greek", "geker"};
         String[] input = {"geeksforgeeks", "geeks", "geek", "geeker", "greek", "geker"};
         System.out.println("Input: " + Arrays.toString(input));
         System.out.println("The longest Common Prefix is: " + solution.longestCommonPrefix(input));
     }
 
     public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0)
+            return "";
+
+        String prefix = strs[0]; // assume first string is the prefix
+        for (int i = 1; i < strs.length; i++) {
+            // Reduce the prefix until it matches the start of strs[i]
+            while (strs[i].indexOf(prefix) != 0) {
+                prefix = prefix.substring(0, prefix.length() - 1);
+                if (prefix.isEmpty()) {
+                    return "";
+                }
+            }
+        }
+
+        return prefix;
+    }
+
+/*    public String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0)
             return "";
 
@@ -30,5 +49,5 @@ public class longestCommonPrefix {
             System.out.println("Prefix after " + strs[i] + ": " + prefix);
         }
         return prefix;
-    }
+    }*/
 }

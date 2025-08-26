@@ -3,12 +3,17 @@ package com.ar.array;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
+/**
+ *
+ */
 public class MissingNumbers {
     public static void main(String[] args) {
         int[] num = {1,2,3,5};
 
         Set<Integer> set = new HashSet<>();
 
+        //
         for (int i: num) {
             set.add(i);
         }
@@ -16,6 +21,7 @@ public class MissingNumbers {
         int min = Arrays.stream(num).min().getAsInt();
         int max = Arrays.stream(num).max().getAsInt();
 
+        //
         for (int i = min; i<= max; i++) {
             if (!set.contains(i)) {
                 System.out.println(i+ " ");
